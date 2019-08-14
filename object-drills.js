@@ -137,28 +137,42 @@ function decoder (words){
 
 }
 console.log(decoder('craft block argon meter bells brown croon droop'));
-//console.log(Object.keys(codeDecode));
-//
 
-//let word = 'craft block argon meter bells brown croon droop'
+// Drill 7
 
-//console.log(Object.keys(codeDecode));
+//Create a factory function given the provided parameters:
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    'name': name,
+    'nickname': nickname,
+    'race': race,
+    'origin': origin, 
+    'attack': attack,
+    'defense': defense,
+    describe() {
+      return `${this.name} is a ${this.race} from ${this.origin}.`
+    },
+    evaluateFight(character) {
+      // Evaluates the outcome of a fight given this character and the opponent's attack and defense values. If the character's defense value is higher than the opponent's attack value, the damage should be zero. 
+      return (character.attack-this.defense > 0) ? `Your opponent takes ${this.attack-character.defense} damage and you receive ${character.attack-this.defense} damage.` : `Your opponent takes ${this.attack-character.defense} damage and you receive 0 damage.`
+    }
+  }
+}
 
+//Create an array of characters using the function and the character's value property keys.
+const characters = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', '10', '6'), createCharacter('Bilbo Baggins', 'bilbo','Hobbit', 'The Shire', '2', '1'), createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', '3', '2'), createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', '6', '8'), createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', '8', '5')];
 
+//Add Arwen to the array of characters.
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendale', '4', '9'));
 
-// function decode(word) {
-// let firstLetter = word[0]; 
-// let index = codeDecode[firstLetter] -1; 
-// return word[index]; 
-// }
+//using .find(), retrieves character nicknamed aragorn from characters and then call his describe method.
+const detailedChar = characters.find(character => {return character.nickname === 'aragorn'});
+console.log(detailedChar.describe());
 
-// function decodeWords(words){
-//   let newArr = [];
-//   let seprateWords = words.split(' ');
-//   for(let i in seprateWords){
-//     newArr = seprateWords[i];
+//Using the .filter(), creates a new array "hobbits" from characters that ONLY contains characters of the race Hobbit.
+const hobbits = characters.filter(character => (character.race === 'Hobbit'));
+console.log(hobbits);
 
-//   }
-
-// }
-// console.log(decode('apple'));
+// Using the .filter() function, create a new array from characters that ONLY have attack value above 5.
+const attackAboveFive = characters.filter(character => (character.attack > 5));
+console.log(attackAboveFive);
