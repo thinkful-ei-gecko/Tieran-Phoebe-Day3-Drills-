@@ -26,3 +26,29 @@ const obj = {
 }
 
 console.log(obj.meals[3]);
+
+const job1 = {
+  name:'Jill',
+  jobTitle: 'HR',
+}
+const job2 = {
+  name:'Ted',
+  jobTitle:'talks',
+}
+const job3 = {
+  name:'Emily',
+  jobTitle:'intern',
+}
+const job4 = {
+  name:'James',
+  jobTitle:'basketball player',
+}
+const job5 = {
+  name:'Billy Bob',
+  jobTitle:'country rap star',
+}
+
+const newPeople = [job1,job2,job3,job4,job5];
+ for(let i in newPeople){
+   console.log(`${newPeople[i].name} is in ${newPeople[i].jobTitle}!`);
+ }
