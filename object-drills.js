@@ -89,3 +89,76 @@ const newPeopleB = [job1b,job2b,job3b,job4b,job5b];
    //Conditional below loops through newPeopleB[i]. If boss key is found, returns true; else false statement.
   newPeopleB[i].boss ? console.log(`${newPeopleB[i].jobTitle} ${newPeopleB[i].name} reports to ${newPeopleB[i].boss}.`) : console.log(`${newPeopleB[i].jobTitle} ${newPeopleB[i].name} doesn't report to anybody.`);
  }
+
+ //Drill 6 
+ function decode(word){
+    
+  if(word[0]=== 'a'){
+      return word[2]
+  }
+   else if(word[0]=== 'b'){
+      return word[3]
+  }
+  else if(word[0]=== 'c'){
+      return word[4]
+  }
+  else if(word[0]=== 'd'){
+      return word[5]
+  }
+  else{
+      return '';
+  }
+}
+
+
+const codeDecode ={
+ 'a' : 2,
+ 'b' : 3,
+ 'c' : 4, 
+ 'd' : 5,
+}
+function decoder (words){
+  const cipher ={
+    'a' : 2,
+    'b' : 3,
+    'c' : 4, 
+    'd' : 5,
+   }
+   const wordsArr = words.split(' ');
+   const decodedArr = wordsArr.map(word => {
+    let offset ;
+    if(cipher[word[0]]){
+      offset = cipher[word[0]] - 1
+    }
+     return offset ? word[offset] : ' ' 
+   });
+    return decodedArr.join('');
+ 
+
+}
+console.log(decoder('craft block argon meter bells brown croon droop'));
+//console.log(Object.keys(codeDecode));
+//
+
+//let word = 'craft block argon meter bells brown croon droop'
+
+//console.log(Object.keys(codeDecode));
+
+
+
+// function decode(word) {
+// let firstLetter = word[0]; 
+// let index = codeDecode[firstLetter] -1; 
+// return word[index]; 
+// }
+
+// function decodeWords(words){
+//   let newArr = [];
+//   let seprateWords = words.split(' ');
+//   for(let i in seprateWords){
+//     newArr = seprateWords[i];
+
+//   }
+
+// }
+// console.log(decode('apple'));
