@@ -3,9 +3,11 @@ function createMyObject(){
         foo:'bar',
         answerToUniverse: 42,
         'olly olly': 'oxen free',
+        greeting: 'hello',
         sayHello (){
-        return  'hello';
+        return  obj.greeting;
         }
+        
 }
 }
 
@@ -25,3 +27,19 @@ function updateObject(obj) {
 }
 
 console.log(updateObject(newObj));
+
+function personMaker() {
+    var person = {
+      firstName: 'Paul',
+      lastName: 'Jones',
+      // replace `null` with a function that uses self reference to return
+      // full name
+      fullName(){
+          return `${this.firstName}  ${this.lastName}`;
+    },
+};
+
+    return person;
+  }
+   console.log(personMaker());
+  
