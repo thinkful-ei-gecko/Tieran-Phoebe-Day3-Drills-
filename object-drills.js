@@ -117,26 +117,33 @@ const codeDecode ={
  'c' : 4, 
  'd' : 5,
 }
-function decoder (words){
+function decoder (words){ //create function decoder with parameter of words
   const cipher ={
     'a' : 2,
     'b' : 3,
     'c' : 4, 
     'd' : 5,
-   }
-   const wordsArr = words.split(' ');
-   const decodedArr = wordsArr.map(word => {
+   } // created new object cipher within function to call upon
+   const wordsArr = words.split(' '); // set new variable wordsArr = our words.split(' ') 
+   //meaning it would create a new array of are sentence into individual words
+   const decodedArr = wordsArr.map(word => { // created another variable creating a new array using the .map() also 
+    //creating a function that creates a variable offset that is indefined
     let offset ;
-    if(cipher[word[0]]){
+    if(cipher[word[0]]){ // inside the new function of .map() saying if 
+      //the first letter of the word exists as a key in cepher, set it to variable offset - 1
       offset = cipher[word[0]] - 1
     }
-     return offset ? word[offset] : ' ' 
+     return offset ? word[offset] : ' ' //ternary operator saying return if offset has a value, 
+     //return the decoded letter, otherwise return a space
+     
    });
-    return decodedArr.join('');
+    return decodedArr.join(''); // return the decodedArr as a string of all the new values
  
 
 }
 console.log(decoder('craft block argon meter bells brown croon droop'));
+
+
 
 // Drill 7
 
